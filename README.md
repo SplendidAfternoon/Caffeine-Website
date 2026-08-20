@@ -1,18 +1,19 @@
-# 🌐 ICP Web3 Starter
+# ☕ Caffeine Website
 
-> A full-stack decentralized application built for the Internet Computer Protocol (ICP).
+> A full-stack website built with Caffeine on the Internet Computer Protocol (ICP).
 
-This repository contains a full-stack Web3 application utilizing a **Motoko** backend canister and a modern **TypeScript/PNPM** frontend. It includes a complete Dockerized build pipeline and automated binding generation for seamless frontend-to-backend communication.
+This repository contains the source code for a decentralized website managed by **Caffeine**. It features a modern frontend interface seamlessly connected to a backend canister, fully containerized for easy deployment.
 
 ## 🏗️ Architecture
 
-- **Backend:** Built with Motoko, utilizing the `mops` package manager.
-- **Frontend:** Built with TypeScript, managed via `pnpm`.
-- **Integration:** Uses automated bindings (`pnpm bindgen`) to ensure type-safe RPC calls from the frontend to the Motoko canister.
+- **Framework:** Managed via `caffeine.toml` which defines the `frontend` website and its `backend` dependencies.
+- **Backend:** Motoko-based smart contracts utilizing the `mops` package manager.
+- **Frontend:** TypeScript website managed via `pnpm`.
+- **Integration:** Uses automated bindings (`pnpm bindgen`) to ensure type-safe RPC calls from the frontend to the backend.
 
 ## 🚀 Quick Start (Docker)
 
-The easiest way to run the application is via the included Docker configuration:
+The easiest way to build and serve the website is via the included Docker configuration:
 
 ```bash
 docker build -t app .
@@ -32,12 +33,12 @@ mops build
 ```
 
 ### 2. Integration (Bindings)
-From the root directory, generate the type bindings so the frontend can communicate with the backend:
+From the root directory, generate the type bindings so the website can communicate with the backend:
 ```bash
 pnpm bindgen
 ```
 
-### 3. Frontend
+### 3. Frontend Website
 From the `src/frontend/` directory:
 ```bash
 pnpm install --prefer-offline
