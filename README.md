@@ -1,17 +1,25 @@
-# ☕ Caffeine Website
+# Caffeine DApp Boilerplate
 
-> A full-stack website built with Caffeine on the Internet Computer Protocol (ICP).
+> A full-stack, distributed application architecture built for the Internet Computer Protocol (ICP), leveraging the Actor model and type-safe RPC bindings.
 
-**Note:** This repository is presented as an architectural reference for full-stack canister development on the Internet Computer. 
+**Note:** This repository is presented as an architectural blueprint for scalable Web3 canister development, demonstrating best practices in Motoko backend engineering and TypeScript frontend integration.
 
-This project contains the source code for a decentralized website managed by **Caffeine**. It features a modern frontend interface seamlessly connected to a backend canister, fully containerized for scalable deployment.
+## Distributed Architecture
 
-## 🏗️ Architecture
+The application is structured as a decentralized, multi-canister topology managed via the `caffeine` workspace configuration. 
 
-- **Framework:** Managed via `caffeine.toml` which defines the `frontend` website and its `backend` dependencies within a unified workspace.
-- **Backend:** Motoko-based smart contracts utilizing the `mops` package manager to handle decentralized state and logic.
-- **Frontend:** TypeScript website managed via `pnpm`, delivering a modern, responsive user experience.
-- **Integration:** Uses automated bindings (`pnpm bindgen`) to ensure type-safe RPC calls from the frontend to the backend canister, virtually eliminating serialization errors.
+### 1. Backend: Motoko Actor Model
+- **Smart Contract Canisters:** The backend state and logic are written in Motoko, fully exploiting the Internet Computer's Actor-based concurrency model.
+- **Memory Management:** Utilizes orthogonal persistence, eliminating the need for traditional database ORMs by persisting data structures directly in WebAssembly memory.
+- **Package Management:** Dependencies and build pipelines are strictly version-controlled via the `mops` ecosystem.
 
-## 📖 Design System
-See `DESIGN.md` for architectural design principles and `AGENTS.md` for legacy CLI command references.
+### 2. Frontend: TypeScript Client
+- **Component Architecture:** A highly optimized, modern web client built with TypeScript and managed via `pnpm` workspaces for strict dependency resolution.
+- **Local State Management:** Engineered to seamlessly interface with decentralized backend networks while maintaining high-performance client-side rendering.
+
+### 3. Type-Safe Inter-Process Communication (IPC)
+- **Automated Binding Generation:** Employs `pnpm bindgen` to automatically parse backend Candid interfaces (IDL) and generate strict TypeScript definitions.
+- **Zero-Serialization-Error RPC:** This automated integration layer ensures that all remote procedure calls from the frontend to the distributed backend are strictly type-checked at compile time, eliminating runtime serialization mismatches.
+
+## Build Pipeline & Containerization
+The entire stack is encapsulated within a deterministic Docker environment, ensuring reproducible builds across CI/CD pipelines and preventing environmental drift.
